@@ -20,8 +20,8 @@
 		<json.schema.validator.version>2.2.6</json.schema.validator.version>
 		<janusgraph.version>0.2.0</janusgraph.version>
 		<tinkerpop.version>3.2.6</tinkerpop.version>
-		<janusgraph.dynamodb.version>1.1.0</janusgraph.dynamodb.version>
-		<dynamodb.local.version>1.11.86</dynamodb.local.version>
+		<janusgraph.dynamodb.version>1.2.0</janusgraph.dynamodb.version>
+		<dynamodb.local.version>1.13.5</dynamodb.local.version>
 		<dynamodb.local.port>4567</dynamodb.local.port>
 		<dependency.plugin.version>3.0.0</dependency.plugin.version>
 		<sqlite4java.version>1.0.392</sqlite4java.version>
@@ -315,6 +315,48 @@
 		</profile>
 	</profiles>
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.8.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.22.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.0.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>2.5.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+				</plugin>
+				<!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+				<plugin>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.7.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>3.0.0</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.jsonschema2pojo</groupId>
@@ -373,6 +415,16 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.16.22</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<repositories>
 		<repository>

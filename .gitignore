@@ -13,5 +13,9 @@ buildNumber.properties
 db/
 ext/
 examples/plugins.txt
+examples/sandbox/gremlin/plugins.txt
 generated-docs/
 .idea/
+*.iml
+*.swp
+local/
